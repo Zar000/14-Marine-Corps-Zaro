@@ -18,7 +18,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         SubscribeNetworkEvent<ImpactEffectEvent>(OnProjectileImpact);
     }
 
-    public void OnProjectileImpact(ImpactEffectEvent ev)
+    private void OnProjectileImpact(ImpactEffectEvent ev)
     {
         if (Deleted(ev.Coordinates.EntityId))
             return;
@@ -50,8 +50,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                     }
                 }
             };
-            RaiseLocalEvent(new ProjectileHitEvent());
-
             _player.Play(ent, anim, "impact-effect");
         }
     }
@@ -63,11 +61,3 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         component.IgnoreShooter = state.IgnoreShooter;
     }
 }
-
-[Serializable]
-public sealed class ProjectileHitEvent : EntityEventArgs
-    {
-    public ProjectileHitEvent()
-        {
-        }
-    }
