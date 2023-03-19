@@ -67,6 +67,13 @@
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
   - type: TimedDespawn
     lifetime: 10
+  - type: PointLight
+    netsync: false
+    enabled: true
+    radius: 2
+    energy: 2
+    color: "#ffde85"
+  - type: Ricochet
 
 - type: entity
   id: BaseBulletTrigger # Trigger-on-collide bullets
@@ -147,6 +154,12 @@
     layers:
     - state: spark
       shader: unshaded
+  - type: PointLight
+    netsync: false
+    enabled: true
+    radius: 2
+    energy: 2
+    color: "#ffff33"
   - type: Physics
   - type: Fixtures
     fixtures:
