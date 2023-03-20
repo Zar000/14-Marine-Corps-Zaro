@@ -1,7 +1,3 @@
-using Robust.Shared.Analyzers;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-
 namespace Content.Shared.Weapons.Ranged.Components;
 
 [RegisterComponent]
@@ -23,6 +19,11 @@ public sealed class RicochetComponent : Component
     public float ricochetPrecision = 0.8f;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("ricochetChance")]
-    public float ricochetChance = 1f;
+    public float ricochetChance = 0.5f;
 
+    [ViewVariables(VVAccess.ReadWrite), DataField("maximumRicochetTimes")]
+    public int maximumRicochetTimes = 2;
+
+    [ViewVariables(VVAccess.ReadWrite), DataField("WhitelistedObjs")]
+    public List<Object>? WhitelistedObjs {get;} = new();
 }
