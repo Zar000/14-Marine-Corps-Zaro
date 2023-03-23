@@ -23,7 +23,4 @@ public sealed class RicochetComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite), DataField("maximumRicochetTimes")]
     public int maximumRicochetTimes = 2;
-
-    [ViewVariables(VVAccess.ReadWrite), DataField("WhitelistedObjs")]
-    public List<Object>? WhitelistedObjs {get;} = new();
 }
